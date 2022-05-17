@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #2c2c2c;
+  color: #eee;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h2 {
+  text-decoration: underline;
+}
+
+ul {
+  font-style: italic;
+}
+
+p {
+  font-size: 1.115rem;
+}
+
+a {
+  color: purple;
+}
+
+#note {
+  font-weight: 700;
+  color: #fdfb6d;
+}
+
+/* ==================================================================================================== //
+// Utilities
+// ==================================================================================================== */
+
+.container {
+  max-width: 986px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.inline-block {
+  display: inline-block;
+}
+.relative {
+  position: relative;
+}
+.float-left {
+  float: left;
+}
+.flex {
+  display: flex;
+}
+.title {
+  font-size: 3rem;
+  margin-bottom: 3rem;
+}
+.sub-title {
+  font-size: 2rem;
+  margin-bottom: 1.75rem;
+}
+.mb-1 {
+  margin-bottom: 1rem;
+}
+.mb-3 {
+  margin-bottom: 3rem;
+}
+.mb-6 {
+  margin-bottom: 6rem;
+}
+.iframe {
+  min-height: 500px;
+  aspect-ratio: 16 / 9;
+}
+.text-yellow {
+  color: #fdfb6d;
+}
+.text-red {
+  color: #ff2c6d;
+}
+.input {
+  width: 100%;
+  border: 0;
+  font-size: 1.1125rem;
+  padding: 0.5rem 1rem;
+}
+.button {
+  min-height: 100%;
+  display: inline-block;
+  border: none;
+  padding: 0 1rem;
+  background-color: #222223;
+  color: #eee;
+  font-weight: 700;
+  align-self: stretch;
+  cursor: pointer;
+  transition: background-color 0.35s;
+}
+.button:hover {
+  background-color: #ff2c6d;
+}
+/* ==================================================================================================== //
+// Header
+// ==================================================================================================== */
+
+.header {
+  background-color: #222223;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 3rem;
+}
+
+.header__box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__title {
+  color: #eee;
+  margin-bottom: 0;
+}
+
+/* ==================================================================================================== //
+// Nav
+// ==================================================================================================== */
+
+.nav {}
+.nav__container {
+  display: flex;
+  font-style: normal;
+}
+.nav__item {
+  list-style: none;
+  margin-right: 1rem;
+}
+.nav__item:last-child {
+  margin-right: 0;
+}
+
+.nav__link {
+  text-decoration: none;
+  color: #ff2c6d;
+  transition: color 0.35s;
+}
+.nav__link:hover {
+  color: #ca174d;
+}
+
+/* ==================================================================================================== //
+// Showcase
+// ==================================================================================================== */
+.showcase__title {
+  font-size: 3rem;
+  margin-bottom: 3rem;
+}
+.showcase__text {
+  /* margin-right: 3rem; */
+  flex: 1;
+}
+.showcase__img {
+  display: block;
+  /* float: left; */
+  text-align: center;
+  position: relative;
+  margin-right: 3rem;
+}
+.showcase__img span {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: #ff2c6d;
+  height: 3rem;
+  width: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border-radius: 50%;
+}
+
+/* ==================================================================================================== //
+// Table
+// ==================================================================================================== */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table th {
+  border-bottom: 2px solid #4e4e4e;
+  padding-bottom: 0.5rem;
+  font-size: 1.5rem;
+  text-align: left;
+}
+.table tbody td {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #4e4e4e;
+
+}
+.table tbody tr:last-child td {
+  border-bottom: none;
+}

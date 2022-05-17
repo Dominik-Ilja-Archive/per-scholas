@@ -1,64 +1,41 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="../css/style.css" />
     <title>Dominik Ilja | About</title>
-    <style>
-      body {
-        background-color: #eee;
-      }
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6,
-      p {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      }
-      h2 {
-        text-decoration: underline;
-      }
-      ul {
-        font-style: italic;
-      }
-      p {
-        font-size: 1.115rem;
-      }
-      a {
-        color: purple;
-      }
-    </style>
   </head>
   <body>
     <!-- Header -->
-    <div>
-      <h2>Dominik Ilja Kulak</h2>
-      <nav>
-        <ul>
-          <li>
-            <a href="./index.html">Home</a>
-          </li>
-          <li>
-            <a href="./about.html">About</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
+    <header class="header">
+      <div class="header__box container">
+        <h2 class="header__title">Dominik Ilja Kulak</h2>
+        <nav class="nav">
+          <ul class="nav__container">
+            <li class="nav__item">
+              <a class="nav__link" href="../index.html">Home</a>
+            </li>
+            <li class="nav__item">
+              <a class="nav__link" href="about.html">About</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-    <div>
-      <h3>My journey</h3>
+    <section class="container mb-3">
+      <h3 class="title">My journey</h3>
       <p>
         I've been exercising regularly over the course of the last year and a
         half. I wanted to make a change to my body to reflect how I feel about
         myself. I wanted to put on some weight and have managed to gain over 30
         pounds so far.
       </p>
-      <p>
+      <p class="mb-3" id="note">
         Currently I'm in a peak phase in my training and it's looking like I'll
         be breaking all of my previous lifts except for squat. I've needed to
         rebuild my squat and the numbers will have to come later.
       </p>
-      <table>
+      <table class="table">
         <thead>
           <tr>
             <th>Month</th>
@@ -136,19 +113,35 @@
           </tr>
         </tbody>
       </table>
-    </div>
+    </section>
 
-    <div>
-      <h3>My Inspiration</h3>
-      <iframe
-        width="560"
-        height="315"
-        src="https://www.youtube.com/embed/bbrK03SlULk"
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
-    </div>
+    <section class="container mb-6">
+      <div class="mb-3">
+        <h3 class="title">My Inspiration</h3>
+        <iframe
+          class="iframe"
+          src="https://www.youtube.com/embed/bbrK03SlULk"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <form>
+        <label class="sub-title inline-block mb-1" for="inspiration"
+          >What are your inspirations?</label
+        >
+        <div class="flex">
+          <input
+            class="input"
+            id="inspiration"
+            name="inspiration"
+            type="text"
+            placeholder="eric bugenhagen"
+          />
+          <button class="button" type="submit">Submit</button>
+        </div>
+      </form>
+    </section>
   </body>
 </html>
