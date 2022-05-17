@@ -3,56 +3,138 @@
 <html>
   <head>
     <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
     <title>Dominik Ilja | Home</title>
   </head>
   <body>
-    <!-- Header -->
-    <header class="header">
-      <div class="header__box container">
-        <h2 class="header__title">Dominik Ilja Kulak</h2>
-        <nav class="nav">
-          <ul class="nav__container">
-            <li class="nav__item">
-              <a class="nav__link" href="index.html">Home</a>
-            </li>
-            <li class="nav__item">
-              <a class="nav__link" href="pages/about.html">About</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
-    <!-- Showcase -->
-    <section class="showcase">
-      <div class="container">
-        <h3 class="showcase__title">Welcome to my website</h3>
-        <div class="flex">
-          <!-- linked image to outside url -->
-          <a
-            class="showcase__img"
-            href="https://www.instagram.com/queenelizabethiiuk/"
-          >
-            <div class="relative">
-              <img src="images/me.jpg" alt="An image of me" />
-              <span>Me</span>
-            </div>
-          </a>
-          <div>
-            <p class="showcase__text">
-              Howdy! My name is <span class="text-red">Dominik</span> and I was
-              born in Washington state. I moved to Pennsylvania when I was real
-              young and have lived here ever since.
-            </p>
-            <p>My favorite things are:</p>
-            <ul class="text-yellow">
-              <li>Powerlifting</li>
-              <li>Coding</li>
-              <li>My wife</li>
+    <div class="bg">
+      <!-- Header -->
+      <header class="header">
+        <div class="header__box container">
+          <h2 class="header__title">Dominik Ilja Kulak</h2>
+          <nav class="nav">
+            <ul class="nav__container">
+              <li class="nav__item">
+                <a class="link-red" href="index.html">Home</a>
+              </li>
+              <li class="nav__item">
+                <a class="link-red" href="pages/journey.html">Journey</a>
+              </li>
             </ul>
+          </nav>
+        </div>
+      </header>
+      <!-- Showcase -->
+      <section class="showcase mb-3 m-header">
+        <div class="container">
+          <h3 class="title">Welcome to my website</h3>
+          <div class="flex">
+            <!-- linked image to outside url -->
+            <a
+              class="showcase__img"
+              href="https://www.instagram.com/queenelizabethiiuk/"
+            >
+              <div class="relative">
+                <img src="images/me.jpg" alt="An image of me" />
+                <span>Me</span>
+              </div>
+            </a>
+            <div>
+              <p class="showcase__text">
+                Howdy! My name is <span class="text-red">Dominik</span> and I
+                was born in Washington state. I moved to Pennsylvania when I was
+                real young and have lived here ever since. I hope to make a good
+                impression, and I'm excited to see what we can all do together!
+              </p>
+              <p>My favorite things are:</p>
+              <ul>
+                <li>
+                  <a class="link-yellow" href="#coding">Coding</a>
+                </li>
+                <li>
+                  <a class="link-yellow" href="#powerlifting">Powerlifting</a>
+                </li>
+                <li>
+                  <a class="link-yellow" href="#wife">My wife</a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+      <!-- Coding -->
+      <section class="scroll-margin-top-6 mb-3" id="coding">
+        <div class="container">
+          <h1 class="title relative mb-2">
+            <span class="relative">
+              Coding
+              <i class="title-icon ri-code-line"></i>
+            </span>
+          </h1>
+          <p>
+            I was first introduced to web development / coding years ago.
+            Originally, I was trying to develop a website to host my guitar
+            videos. This site would allow users to download tabs and other
+            things related to the songs. I never actually finished it, but it
+            allowed me to get a taste of it.
+          </p>
+          <p>
+            Later on a friend of mine recommended me to learn C# to learn app
+            development. I later switched to JavaScript, but this was the first
+            programming language I actually learned. I wanted to create an
+            exercise app that would allow me to automate a lot of the tracking
+            that I currently do. I had trouble creating a visual product so that
+            lead me back to HTML, CSS, & JavaScript.
+          </p>
+          <p>
+            After going through a couple of jobs and realizing how much I
+            enjoyed programming, I knew I needed to make a shift. There's
+            something to love about the process of beating your head against a
+            wall, but perservering through that adversity. Once you finally
+            succeed the feeling is incredible.
+          </p>
+        </div>
+      </section>
+      <!-- Powerlifting -->
+      <section class="scroll-margin-top-6 mb-3" id="powerlifting">
+        <div class="container">
+          <h1 class="title relative mb-2">
+            <span class="relative">
+              Powerlifting
+              <i class="title-icon ri-blaze-line"></i>
+            </span>
+          </h1>
+          <p>
+            I've been seriously lifting for around the last year and a half. I
+            started out getting light headed deadlifting 135 lbs and now I'm
+            projected to hit into the
+            <span class="text-yellow">high 400s low 500s</span> at the end of my
+            cycle. My weightlifting and programming journey have been entwined
+            in each other. Using JavaScript to write scripts for Google Maps,
+            and my desire to make an application that fits all of my needs.
+          </p>
+        </div>
+      </section>
+      <!-- Wife -->
+      <section class="scroll-margin-top-6 mb-3" id="wife">
+        <div class="container">
+          <h1 class="title relative mb-2">
+            <span class="relative">
+              Wife
+              <i class="title-icon ri-heart-line"></i>
+            </span>
+          </h1>
+          <p>
+            My wife has been very supportive of me. She's listened to me ramble
+            on about programming topics and does her best to understand what I'm
+            saying. I hope that through this course I can continue to make her
+            proud of me.
+          </p>
+        </div>
+      </section>
+    </div>
   </body>
 </html>
