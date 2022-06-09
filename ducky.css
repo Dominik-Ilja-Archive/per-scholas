@@ -23,7 +23,7 @@ html {
   height: 115px;
   /* GIVE THE LEFT AND TOP POSITION OF DUCK HAVE A TRANSITION EFFECT
   ONLY NEEDED CHANGE IN THIS FILE!! */
-  transition: top 2s, left 2s;
+  transition: top 3.5s, left 3.5s;
   transition-timing-function: linear;
   background-repeat: no-repeat;
 }
