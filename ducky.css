@@ -44,3 +44,23 @@ html {
   background-position: center;
   background-image: url(images/shot.png);
 }
+
+/* Custom CSS */
+.start {
+  position: absolute;
+  left: 50%;
+  font-size: 2rem;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  border: 0;
+  display: inline-block;
+  padding: 2rem;
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 0.281);
+  transition: all 0.2s;
+}
+.start:hover {
+  background-color: #fff;
+  transform: translate(-50%, -55%);
+}

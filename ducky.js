@@ -1,29 +1,6 @@
 window.onload = function () {
   const body = document.body;
-
-  console.log(body);
-
-  //* 1. Create a <div> with the class "duck" and add it to the body.  Do this step by step
-  //* ( 1. create the element
-  //*   2. add a class to the element
-  //*   3. append the element to the body )
-
-  // const duck = document.createElement("div");
-  // duck.classList.add("duck");
-  // body.append(duck);
-
-  //* 2. Next, use setInterval to toggle the "flap" class on the duck every 250 ms (1/4 second)
-  //* https://www.w3schools.com/jsref/met_win_setinterval.asp
-  // setInterval(() => {
-  //   duck.classList.toggle('flap');
-  // }, 250);
-
-
-  //* 3. Now, let's move the duck using CSS "top" and "left". Create
-  //* a function `moveDuck` that takes a duck object as an argument and sets the
-  //* "top" and "left" CSS properties.
-  //* HINT: Use Math.random() * window.innerWidth    for "left"
-  //*       And Math.random() * window.innerHeight   for "top"
+  const duckIntervalIds = [];
 
   /**
    * @param {HTMLElement} duck HTML Element with class of duck
@@ -61,100 +38,173 @@ window.onload = function () {
     };
   }
 
+  /**
+   * @returns {object} object containing duck flap and move setTimeout ids
+   * @desc 
+   */
 
-  //* 4. Try making the duck move to a different location every second (what did we use to do this several lines up??)
-  // setInterval(() => {
-  //   moveDuck(duck);
-  // }, 1000);
-
-  //* 5. Congratulations! Move on to part 2!
-
-  // ---------------------------- PART 2 ---------------------------------
-
-  //* 6. Now we will organize this better. Let's create
-  //*    a "function" called createDuck() that does everything in 1-4
-  //*    and "returns" the duck object
-
-  function createDuck() {
+  function createDuck(duckId) {
     const duck = document.createElement('div');
     duck.classList.add('duck');
-    moveDuck(duck);
+    moveDuck(duck); // creates random start position
     body.append(duck);
 
-    setInterval(() => {
+    // assign duckId to "data-" html attribute
+    // setAttribute will auto lowercase your attribute name
+    // https://developer.mozilla.org/en-US/docs/Web/API/Element/setAttribute
+    duck.setAttribute('data-duckid', duckId);
+
+    // set interval for duck to flap and capture intervalId
+    const flap = setInterval(() => {
+      console.log('flap');
       duck.classList.toggle('flap');
     }, 250);
 
-    setInterval(() => {
+    // set interval for duck to move and cature intervalId
+    const move = setInterval(() => {
       const { prevLeft: left, currLeft: right } = moveDuck(duck);
       /*
-        right represents moving closer to the right side of the screen
-        left represents moving closer to the left side of the screen
-        so if the right value is greater than left we're moving to the right
-        side of the screen else to the left
+      right represents moving closer to the right side of the screen
+      left represents moving closer to the left side of the screen
+      so if the right value is greater than left we're moving to the right
+      side of the screen else to the left
       */
-      console.log(right - left);
+      // console.log(right - left);
+      console.log('move');
       right > left ? duck.classList.add('right') : duck.classList.remove('right');
     }, 2000);
+
+    return {
+      duckId,
+      timers: {
+        flap,
+        move
+      }
+    };
   }
 
-  //* 7. Now, let's create lots of ducks!  Use a "for" loop to create 5 ducks
-  //*    using our fancy new createDuck() function
+  /**
+   * @desc Queries the DOM for all instances of our duck and alerts the user when all instances are removed
+   */
 
-  for (let i = 0; i < 20; i++) {
-    createDuck();
+  function checkForWinner() {
+    const ducks = document.querySelectorAll('.duck');
+    console.log(ducks);
+
+    if (ducks.length === 0) {
+      alert('You Win!');
+      createStartButton();
+    };
   }
 
 
-  //* 8. The ducks are overlapping.  Modify createDuck so each time
-  //*     it creates a duck, it appears in a random location
-  //* HINT: You may want to create a `randomPosition()` function that you can use
-  //*       to set the ducks' initial locations and in your `moveDuck()` function;
+  /**
+   * @param {object[]} arr 
+   * @desc Removes a duck's flap and move intervals
+   */
 
-  //* 9. Keep going! Move onto part 3!
 
-  // --------------------------- PART 3 ------------------------------------
+  function removeDuckIntervals(duckId) {
+    // the duckId is expected to be a string that has a number character inside of it
+    // we convert the string to a number
+    const id = Number(duckId);
 
-  //* 11. BOOM. Attach a "click" handler that adds the "shot" class to
-  //*     the duck when you click on it!
+    // loop through the ducks and find the duck that we want to remove
+    // and get its timers
+    const { timers } = duckIntervalIds.find((duck) => duck.duckId === id);
 
+    // clear each intervalTimer
+    for (const key in timers) {
+      clearInterval(timers[key]);
+    }
+
+  }
+
+  /**
+   * @param {HTMLElement} duck
+   * @desc removes a duck element & related data from browser
+   */
+
+  function removeDuck(duck) {
+    const { duckid } = duck.dataset;
+    duck.style.display = 'none';
+    duck.remove();
+    removeDuckIntervals(duckid);
+
+  };
+
+  /**
+   * @desc plays sound
+   */
+
+  function playSound(path) {
+    if (typeof path !== 'string') return;
+
+    const sound = new Audio(path);
+    sound.play();
+  }
+
+  /**
+   * @param {number} amount ducks to generate
+   * @desc generates ducks
+   */
+
+  function generateDucks(amount = 5) {
+    const { length } = duckIntervalIds;
+    let id = length ? length : 0;
+
+    for (let i = 0; i < amount; i++) {
+      duckIntervalIds.push(createDuck(id));
+      id += 1;
+    }
+  }
+
+  function createStartButton() {
+    const start = document.createElement('button');
+    start.textContent = "Start Game";
+    start.classList.add('start');
+    body.append(start);
+
+    function onStart() {
+      generateDucks();
+      start.removeEventListener('click', onStart);
+      start.remove();
+    }
+    start.addEventListener("click", onStart);
+  }
+
+  // function playGame()
+
+  // console.log(duckIntervalIds);
+
+  // sets a click event on the window
+  // this allows us to set one event listener rather than an individual listener
+  // for each instance of our duck. If we click on an element with a class of duck
+  // the element is removed
   window.addEventListener("click", e => {
+    playSound('./audio/pew.mp3');
+
     // destructure the target property from event object
     const { target } = e;
+    console.log(target);
 
     // look to see if the target has a class of duck
     // this adds our 'shot animation' if we've clicked on a duck
     // It then removes the duck and checks if any ducks are left
     if (target.classList.contains('duck')) {
       target.classList.add('shot');
+      playSound('./audio/duckHit.mp3');
+      playSound('./audio/duckHit.mp3');
+
+      // remove intervalId's
 
       setTimeout(() => {
-        target.remove();
+        removeDuck(target);
         checkForWinner();
       }, 500);
 
     }
   });
+  createStartButton();
 
-  //* 12. After a duck has been clicked on, remove it from the DOM after
-  //*     a short delay (1 second) Hint Hint...use setTimeout
-  //*     as for removing the element check out https://dzone.com/articles/removing-element-plain
-
-  //* 13. Create a new function named checkForWinner() that reads the DOM
-  //*     to see if there are any ducks left. (How can we check the DOM for more than one element?, and how can we see how many elements we get back) If not, alert "YOU WIN!"
-
-  function checkForWinner() {
-    const ducks = document.querySelectorAll('.duck');
-    console.log(ducks);
-
-    if (ducks.length === 0) alert('You Win!');
-  }
-
-  //* 14. BONUS: The ducks are moving pretty erratically, can you think
-  //*     of a way to adjust the ducks speed based on how far needs to move?
-
-  //* 15. BONUS: Add the "left" and "right" class to the duck based on the
-  //*     direction the duck is flying and change the way the duck is facing
-
-  // Done, you have accomplish another level of skill
 };
