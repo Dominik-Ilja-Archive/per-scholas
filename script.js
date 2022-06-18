@@ -47,7 +47,7 @@ class Ship {
 /**
  * @param {number} [min = 0] lowest number to be returned
  * @param {number} [max = 10] highest number to be returned
- * @param {object} [options = {round: false, place: null}] highest number to be returned
+ * @param {object} [options = {round: false, place: null}] if we want to round number and to what place
  * @returns {number} number generated between min and max
  * @desc Generates a number between min and max. Is inclusive of min and max.
  */
