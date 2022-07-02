@@ -1,33 +1,16 @@
-.records {
-  min-height: 100vh;
+.card-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  justify-content: center;
-  align-items: center;
-  column-gap: 5rem;
-  padding-left: 3rem;
-  padding-right: 3rem;
+  gap: 2rem;
 }
 
-.receipt {
-  border: 2px solid #f8d3c5;
-  padding: 2rem 1rem;
-
-  &__title {
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
-  }
-  &__list {
-    display: flex;
-    flex-direction: column;
-    row-gap: 1rem;
-  }
-  &__item {
-    font-weight: 600;
-  }
-  &__key {
-    color: #533295;
-  }
-  &__value {
-  }
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: #2f4f4f;
+  border-radius: 1rem;
+  color: #fff;
 }
