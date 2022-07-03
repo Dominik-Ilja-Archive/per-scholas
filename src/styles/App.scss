@@ -28,8 +28,12 @@
 
 .container {
   h1 {
-    font-size: 3rem;
+    font-size: 2.25rem;
     font-weight: 400;
+
+    @media only screen and (min-width: 600px) {
+      font-size: 3rem;
+    }
   }
   form {
     display: flex;
@@ -76,8 +80,12 @@
     font-weight: 700;
   }
   .result {
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: #fff;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    @media only screen and (min-width: 600px) {
+      font-size: 2.5rem;
+    }
   }
 }
